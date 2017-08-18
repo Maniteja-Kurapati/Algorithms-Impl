@@ -16,7 +16,7 @@ public class InsertionSort {
      */
     public static void main(final String[] args) {
 
-        int[] input = { 9, 8, 6, 99, 100, 7, 3, 1, 4, 2, 5, 55, 44, 33 };
+        int[] input = { 9, 8, 6, 99, 100, 7, 3, 1, 4, 2, 5, 55, 44, 33, -5, -50, -1, -99 };
         int[] output = InsertionSort.perform(input);
         System.out.println(Arrays.toString(output));
 
