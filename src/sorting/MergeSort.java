@@ -19,12 +19,12 @@ public class MergeSort {
             int q = (int) Math.floor((p + r) / 2);
             mSort(inputArr, p, q);
             mSort(inputArr, q + 1, r);
-            return merge(inputArr, p, q, r);
+            merge(inputArr, p, q, r);
         }
         return inputArr;
     }
 
-    private static int[] merge(final int[] arr, final int p, final int q, final int r) {
+    private static void merge(final int[] arr, final int p, final int q, final int r) {
         int[] arr1 = new int[(q - p) + 2];
         int[] arr2 = new int[(r - q) + 1];
         for (int i = 0; i <= arr1.length - 2; i++) {
@@ -46,6 +46,5 @@ public class MergeSort {
                 y++;
             }
         }
-        return arr;
     }
 }
