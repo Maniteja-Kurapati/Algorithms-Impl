@@ -10,13 +10,13 @@ public class BinarySearch {
 	public static void main(final String[] args) {
 
 		int[] input = { 9, 8, 6, 99, 100, 7, 3, 1, 4, 2, 5, 55, 44, 33, -5, -50, -1, -99 };
-		MergeSort.mSort(input, 0, input.length-1);
+		MergeSort.mSort(input, 0, input.length - 1);
 		int output = BinarySearch.binarySearch(input, 0, input.length - 1, -5);
-		 System.out.println(output);
+		System.out.println(output);
 	}
 
 	/**
-	 * Sorting Procedure.
+	 * Search Procedure.
 	 */
 	public static int binarySearch(final int[] arr, int p, int q, int value) {
 
@@ -29,7 +29,7 @@ public class BinarySearch {
 			} else {
 				return binarySearch(arr, p, middle - 1, value);
 			}
-		}else {
+		} else {
 			return -1;
 		}
 	}
