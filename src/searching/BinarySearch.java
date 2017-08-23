@@ -14,7 +14,7 @@ public class BinarySearch {
 		int output = BinarySearch.binarySearch(input, 0, input.length - 1, -5);
 		System.out.println(output);
 	}
-
+  
 	/**
 	 * Search Procedure.
 	 */
