@@ -5,8 +5,8 @@ import utils.ArrayGenerator;
 public class MergeSort {
     public static void main(final String[] args) {
 
-        int[] input = ArrayGenerator.getArray(25000000);
-        int[] output = MergeSort.mSort(input, 0, input.length - 1);
+        int[] input = ArrayGenerator.getArray(100000000);
+        MergeSort.mSort(input, 0, input.length - 1);
         // System.out.println(Arrays.toString(output));
         System.out.println("Completed");
     }
