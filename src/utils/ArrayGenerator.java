@@ -13,7 +13,16 @@ public class ArrayGenerator {
         return array;
     }
 
-    public static int[] getArray(final int size, final int seed) {
+    public static int[] getArray(final int size, final int upperBound) {
+        int[] array = new int[size];
+        Random generator = new Random();
+        for (int i = 0; i < size; i++) {
+            array[i] = generator.nextInt(upperBound);
+        }
+        return array;
+    }
+
+    public static int[] getArray(final int size, final int seed, final int upperBound) {
         int[] array = new int[size];
         Random generator = new Random(seed);
         for (int i = 0; i < size; i++) {
