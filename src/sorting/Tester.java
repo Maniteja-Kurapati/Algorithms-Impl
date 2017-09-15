@@ -18,7 +18,8 @@ public class Tester {
 		// System.out.println(Arrays.toString(input));
 		// Tester.twoSum(input, 6);
 
-		Tester.lengthOfLongestSubstring("abcabcbb");
+		// Tester.lengthOfLongestSubstring("abcabcbb");
+		System.out.println(Tester.reverse(1534236469));
 
 	}
 
@@ -182,5 +183,32 @@ public class Tester {
 		}
 
 		return longestlength;
+	}
+
+	private static int reverse(int x) {
+		int reverse = 0;
+		int result = 0;
+		while (x != 0) {
+			result = reverse * 10 + x % 10;
+			if ((reverse - (x % 10)) / 10 != reverse) {
+				return 0;
+			}
+			reverse = result;
+			x = x / 10;
+		}
+
+		return reverse;
+	}
+
+	public int singleNumber(int[] nums) {
+		Map<Integer, Integer> map = new HashMap<Integer, Integer>();
+		for (int i = 0; i < nums.length; i++) {
+			if (map.containsKey(nums[i])) {
+				map.remove(nums[i]);
+			} else {
+				map.put(nums[i], nums[i]);
+			}
+		}
+		return (int) map.values().iterator().next();
 	}
 }
