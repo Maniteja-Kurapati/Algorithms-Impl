@@ -223,15 +223,31 @@ public class Tester {
     //
     // }
 
-    public int reverse(final int x) {
+    private static int reverse(int x) {
         int reverse = 0;
-
+        int result = 0;
         while (x != 0) {
-            reverse = x % 10;
+            result = reverse * 10 + x % 10;
+            if ((reverse - (x % 10)) / 10 != reverse) {
+                return 0;
+            }
+            reverse = result;
+            x = x / 10;
         }
 
-        return 0;
+        return reverse;
+    }
 
+    public int singleNumber(final int[] nums) {
+        Map<Integer, Integer> map = new HashMap<Integer, Integer>();
+        for (int i = 0; i < nums.length; i++) {
+            if (map.containsKey(nums[i])) {
+                map.remove(nums[i]);
+            } else {
+                map.put(nums[i], nums[i]);
+            }
+        }
+        return map.values().iterator().next();
     }
 
     private static String longestPalindrome(final String s) {
