@@ -1,4 +1,4 @@
-package sorting;
+package problem.set;
 
 import java.util.Stack;
 

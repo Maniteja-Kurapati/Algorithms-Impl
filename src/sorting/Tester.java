@@ -1,5 +1,6 @@
 package sorting;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
@@ -363,5 +364,20 @@ public class Tester {
     // return queue;
     //
     // }
+
+    public ListNode removeNthFromEnd(ListNode head, final int n) {
+        ArrayList<ListNode> nodes = new ArrayList<ListNode>();
+        ListNode current = head;
+        while (current != null) {
+            nodes.add(current);
+            current = current.next;
+        }
+        int nodeToBeRemoved = nodes.size() - n;
+        if (nodeToBeRemoved - 1 < 0) {
+            head = head.next;
+        }
+        nodes.get(nodeToBeRemoved - 1).next = nodes.get(nodeToBeRemoved).next;
+        return head;
+    }
 
 }
