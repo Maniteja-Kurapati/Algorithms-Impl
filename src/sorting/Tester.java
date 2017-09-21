@@ -3,6 +3,7 @@ package sorting;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import utils.ArrayGenerator;
@@ -380,4 +381,82 @@ public class Tester {
         return head;
     }
 
+    public ListNode swapPairs(final ListNode head) {
+        ListNode dummy = new ListNode(0);
+        dummy.next = head;
+
+        ListNode current = dummy;
+
+        while (current.next != null && current.next.next != null) {
+            ListNode second = current.next.next;
+            ListNode temp = current.next.next.next;
+            current.next.next.next = current.next;
+            current.next.next = temp;
+            current.next = second;
+            current = current.next.next;
+        }
+
+        return dummy.next;
+
+    }
+
+    private static List<List<Integer>> threeSum(final int[] nums) {
+        List<List<Integer>> pairs = new ArrayList<List<Integer>>();
+        Arrays.sort(nums);
+
+        for (int i = 0; i < nums.length - 2 && nums[i] <= 0; i++) {
+            if (i != 0 && nums[i] == nums[i - 1]) {
+                continue;
+            }
+            for (int j = i + 1; j < nums.length - 1; j++) {
+                if (j == i + 1 || (j > i + 1 && nums[j] != nums[j - 1])) {
+                    if (-(nums[i] + nums[j]) >= nums[j]) {
+                        int indexOfRequired =
+                            Arrays.binarySearch(nums, j + 1, nums.length, -(nums[i] + nums[j]));
+                        if (indexOfRequired >= 0) {
+                            pairs.add(Arrays.asList(new Integer[] { nums[i], nums[j],
+                                nums[indexOfRequired] }));
+                        }
+                    }
+                }
+
+            }
+        }
+
+        return pairs;
+    }
+
+    private static int threeSumClosest(final int[] nums, final int target) {
+
+        Arrays.sort(nums);
+        int distance = (int) Double.POSITIVE_INFINITY;
+        int sum = 0;
+
+        for (int i = 0; i < nums.length - 2; i++) {
+            for (int left = i + 1, right = nums.length - 1; left < right;) {
+                int curSum = nums[i] + nums[left] + nums[right];
+                if (curSum > target) {
+                    right--;
+                } else if (curSum < target) {
+                    left++;
+                } else {
+                    return curSum;
+                }
+                int curDis = target - (curSum);
+                if (curDis < 0) {
+                    if (-curDis < distance) {
+                        distance = -curDis;
+                        sum = curSum;
+                    }
+                } else {
+                    if (curDis < distance) {
+                        distance = curDis;
+                        sum = curSum;
+                    }
+                }
+
+            }
+        }
+        return sum;
+    }
 }
