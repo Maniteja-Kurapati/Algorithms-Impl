@@ -2,12 +2,12 @@ package sorting;
 
 public class WhiteBoard {
 
-    public static void main(final String[] args) {
+	public static void main(final String[] args) {
 
-        int[] input = new int[] { 1, 2, -2, -1 };
+		int[] input = new int[] { 1, 2, -2, -1 };
 
-        System.out.println();
+		System.out.println();
 
-    }
+	}
 
 }
